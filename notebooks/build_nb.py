@@ -5,7 +5,6 @@ script and describe what happened. Every pipeline file is divided into numbered
 steps, and the notebook prints each step straight out of the file, so the class
 reads exactly what runs and the two can never drift apart.
 """
-import pathlib
 import nbformat as nbf
 
 KERNEL = {"display_name": "NIGHTSHIFT build", "language": "python", "name": "nightshift-build"}

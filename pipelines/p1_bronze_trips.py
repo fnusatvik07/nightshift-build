@@ -34,7 +34,7 @@ import psycopg
 from .lib.config import SCHEMA, dsn
 from .lib.run import Run, setup, write_window
 
-TABLE = "bronze_trips"
+TABLE = "bronze_trips"  # touched by a test
 
 
 # ══ STEP 1 · Describe the table we are going to fill ══

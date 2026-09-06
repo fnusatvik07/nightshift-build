@@ -34,7 +34,7 @@ import psycopg
 from .lib.config import SCHEMA, dsn
 from .lib.run import Run, setup
 
-TABLE = "gold_daily"
+TABLE = "gold_daily"  # one row per day
 
 
 # ══ STEP 1 · Describe the shape of the answer ══

@@ -125,6 +125,15 @@ def collect() -> list[Signal]:
             try:
                 s.value = one(cur, s.current_sql)
             except Exception as e:
+                # Roll back, or one failing signal takes out every signal after
+                # it. Postgres aborts the whole transaction on any error, so
+                # without this the next query dies with "current transaction is
+                # aborted" and a single bad SQL string silences the whole board.
+                # One poison signal must not block the rest.
+                try:
+                    c.rollback()
+                except Exception:
+                    pass
                 s.detail = f"could not run: {type(e).__name__}"
                 continue
 

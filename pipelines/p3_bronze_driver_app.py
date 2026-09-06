@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS {SCHEMA}.{TABLE} (
 # first. When the team renames it again, this tuple is the one line that
 # changes, and the quarantine in STEP 4 is what tells you it happened.
 SURGE_PATHS = (
-    ("payload", "surge_multiplier"),          # 4.0.6, 4.1.2 and 4.1.5. 96.8% of documents
-    ("payload", "pricing", "surgeFactor"),    # 4.2.0. See below.
+    ("payload", "surge_multiplier"),          # 4.0.6, 4.1.5. 96.8% of documents
+    ("payload", "pricing", "surgeFactor"),    # 4.1.2 and 4.2.0. See below.
     ("pricing", "surge_multiplier"),          # where we GUESSED 4.2 would put it. It did not
     ("surge_multiplier",),                    # the old flat shape, kept for older documents
 )

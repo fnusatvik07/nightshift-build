@@ -35,7 +35,7 @@ from confluent_kafka import Consumer, OFFSET_BEGINNING, TopicPartition
 from .lib.config import KAFKA, SCHEMA, TOPIC_RIDES, dsn
 from .lib.run import Run, setup
 
-TABLE = "bronze_events"
+TABLE = "bronze_events"  # touched by a test
 
 # The consumer group name IS the memory. Kafka stores "how far has
 # teach-bronze-events read" against this exact string. Change the string and

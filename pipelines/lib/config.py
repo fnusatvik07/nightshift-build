@@ -35,7 +35,7 @@ TOPIC_RIDES = "kerb.trips.lifecycle"
 # Everything this course builds lands in one schema, and nothing else on the
 # machine writes there. That is what makes `reset` safe to run in front of a
 # room: it drops this one schema and nothing of anyone else's is at risk.
-SCHEMA = "teach"
+SCHEMA = "teach"  # touched by a test
 
 
 def dsn() -> str:

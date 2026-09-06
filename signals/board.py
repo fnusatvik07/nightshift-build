@@ -109,7 +109,7 @@ SIGNALS = [
                    / nullif(count(*), 0), 3), 0) FROM {SCHEMA}.bronze_driver_app"""),
 ]
 
-Z_THRESHOLD = 4.0
+Z_THRESHOLD = 4.3
 
 
 def one(cur, sql):

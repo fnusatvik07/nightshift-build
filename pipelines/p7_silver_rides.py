@@ -105,7 +105,7 @@ SELECT
     t.status,
     t.driver_id,
     t.pickup_zone,
-    z.zone_name                             AS pickup_zone_name,
+    coalesce(z.zone_name, t.pickup_zone::text) AS pickup_zone_name,
     z.borough                               AS pickup_borough,
     t.distance_km,
     round(t.duration_s / 60.0, 1)          AS duration_min,

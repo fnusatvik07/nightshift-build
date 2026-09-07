@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS {SCHEMA}.{TABLE} (
 SURGE_PATHS = (
     ("payload", "surge_multiplier"),          # 4.0.6, 4.1.2 and 4.1.5. 96.8% of documents
     ("payload", "pricing", "surgeFactor"),    # 4.2.0. See below.
+    ("payload", "pricing", "surge", "factor"),  # live path seen in quarantine payloads
     ("pricing", "surge_multiplier"),          # where we GUESSED 4.2 would put it. It did not
     ("surge_multiplier",),                    # the old flat shape, kept for older documents
 )

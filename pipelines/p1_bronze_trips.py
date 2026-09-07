@@ -98,7 +98,7 @@ def choose_window(days: int) -> tuple[dt.date, dt.date]:
             SELECT date(requested_at)
             FROM kerb.trips
             GROUP BY 1
-            HAVING count(*) > 100        -- ignore days with a handful of stray rows
+            HAVING count(*) > 10         -- ignore only tiny stray days
             ORDER BY 1 DESC
             LIMIT 1
         """).fetchone()[0]

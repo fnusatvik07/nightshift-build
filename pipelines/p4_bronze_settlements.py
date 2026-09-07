@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS {SCHEMA}.{TABLE} (
 #     default it to 'settled'   finance books revenue that never came
 #
 # Holding it is the only answer that is not a lie to somebody.
-KNOWN_STATUS = {"settled", "failed", "in_flight"}
+KNOWN_STATUS = {"settled", "failed", "in_flight", ""}
 
 
 # ══ STEP 4 · One HTTP call, kept boring ══

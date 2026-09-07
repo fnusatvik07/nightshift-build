@@ -104,6 +104,12 @@ def run() -> int:
         with psycopg.connect(dsn(), autocommit=False) as c, c.cursor() as cur:
             cur.execute(f"SELECT count(*) FROM {SCHEMA}.silver_rides")
             r.rows_in = cur.fetchone()[0]
+            cur.execute(f"SELECT max(trip_date) FROM {SCHEMA}.silver_rides")
+            latest_silver = cur.fetchone()[0]
+            cur.execute(f"SELECT max(trip_date) FROM {SCHEMA}.{TABLE}")
+            latest_gold = cur.fetchone()[0]
+            if latest_silver is not None and latest_gold is not None and latest_silver <= latest_gold:
+                raise RuntimeError(f"gold_daily is not advancing: silver={latest_silver}, gold={latest_gold}")
             cur.execute(f"DELETE FROM {SCHEMA}.{TABLE}")
             cur.execute(f"INSERT INTO {SCHEMA}.{TABLE} {BUILD}")
             r.rows_out = cur.rowcount
